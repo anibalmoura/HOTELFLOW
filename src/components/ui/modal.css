@@ -1,59 +1,57 @@
-/* Fundo escuro */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
 }
 
-/* Caixa do modal */
 .modal-content {
   background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 16px;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.2s ease-in-out;
+  max-width: 450px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.25s ease-in-out;
 }
 
-/* Animação simples */
-@keyframes fadeIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
 }
 
-/* Inputs */
 .modal-content input {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   outline: none;
+  transition: 0.2s;
 }
 
-/* Botão */
+.modal-content input:focus {
+  border-color: #2563eb;
+}
+
 .modal-content button {
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
+  margin-top: 20px;
+  padding: 12px;
   background: #2563eb;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .modal-content button:hover {
   background: #1d4ed8;
+  transform: translateY(-1px);
 }

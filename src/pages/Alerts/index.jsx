@@ -1,21 +1,30 @@
+import { useEffect, useState } from "react";
 import MainLayout from "../../components/layout/MainLayout";
 
 export default function Alerts() {
-  const alerts = [
-    "Sistema atualizado",
-    "Novo evento adicionado",
-    "Manutenção programada",
-  ];
+  const [alerts, setAlerts] = useState([]);
+
+  // carregar alerts
+  useEffect(() => {
+    const saved =
+      JSON.parse(localStorage.getItem("campina365_alerts")) || [];
+
+    setAlerts(saved);
+  }, []);
 
   return (
     <MainLayout>
       <h1>Alertas</h1>
 
-      <ul>
-        {alerts.map((alert, i) => (
-          <li key={i}>{alert}</li>
-        ))}
-      </ul>
+      {alerts.length === 0 ? (
+        <p>Nenhum alerta no momento.</p>
+      ) : (
+        <ul>
+          {alerts.map((alert) => (
+            <li key={alert.id}>{alert.message}</li>
+          ))}
+        </ul>
+      )}
     </MainLayout>
   );
 }
